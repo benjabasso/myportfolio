@@ -1,0 +1,19 @@
+:root {
+    --bg: #0f0f0f;
+    --bg-card: #161616;
+    --text: #e6e6e6;
+    --text-soft: #c2c2c2;
+    --primary: #69a7ff;
+    --primary-dark: #3d7ed6;
+
+    --radius: 12px;
+    --transition: 0.3s ease;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+}

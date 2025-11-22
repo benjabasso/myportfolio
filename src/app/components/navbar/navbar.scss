@@ -1,0 +1,123 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 40px;
+
+  background: rgba(12, 12, 12, 0.55);
+  backdrop-filter: blur(14px);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+
+  box-shadow: 0 0 22px rgba(105, 167, 255, 0.06);
+
+  /* Animación sutil al cargar */
+  animation: fadeDown 0.7s ease forwards;
+  opacity: 0;
+
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+
+    img {
+      width: 70px;       // ajusta tamaño del logo
+      height: 70px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 6px rgba(105,167,255,0.45));
+      transition: 0.25s ease;
+      cursor: pointer;
+    }
+
+    img:hover {
+      filter: drop-shadow(0 0 12px rgba(105,167,255,0.8));
+      transform: translateY(-2px);
+    }
+  }
+
+  .links {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+    padding: 0;
+    margin: 8px;
+    .nav-item {
+      position: relative;
+      color: var(--text-soft);
+      text-decoration: none;
+      font-size: 1rem;
+      letter-spacing: 0.4px;
+      transition: 0.25s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    
+      .nav-icon {
+        width: 18px;
+        height: 18px;
+        stroke: var(--text-soft);
+        stroke-width: 1.6;
+        opacity: 0.85;
+        transition: 0.25s ease;
+      }
+    
+      /* Línea inferior (apagada por defecto) */
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -4px;
+        width: 0%;
+        height: 2px;
+        background: var(--primary);
+        box-shadow: 0 0 6px rgba(105, 167, 255, 0.7);
+        transition: 0.25s ease;
+        border-radius: 2px;
+      }
+    
+      /* --- HOVER --- */
+      &:hover {
+        color: var(--primary);
+        text-shadow: 0 0 7px rgba(105, 167, 255, 0.8);
+    
+        &::after {
+          width: 100%;
+        }
+    
+        .nav-icon {
+          stroke: var(--primary);
+          filter: drop-shadow(0 0 6px rgba(105, 167, 255, 0.8));
+          opacity: 1;
+        }
+      }
+    
+      /* --- ACTIVE (Página actual) --- */
+      &.active {
+        color: var(--primary);
+        text-shadow: 0 0 10px rgba(105, 167, 255, 0.8);
+    
+        &::after {
+          width: 100%;
+        }
+    
+        .nav-icon {
+          stroke: var(--primary);
+          filter: drop-shadow(0 0 6px rgba(105, 167, 255, 0.9));
+          opacity: 1;
+        }
+      }
+    }
+    
+    
+  }
+}

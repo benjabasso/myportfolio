@@ -1,0 +1,615 @@
+.hero {
+    position: relative;
+    padding: 180px 20px 160px;
+    min-height: 60vh;
+    text-align: center;
+    overflow: visible; // 🔥 IMPORTANTE para que el glow suba a la navbar
+
+    /* --- GLOW SUPERIOR QUE SE MEZCLA CON LA NAVBAR --- */
+    &::before {
+        content: "";
+        position: absolute;
+        top: -180px;                // 🔥 sube el glow por detrás de la navbar
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        height: 420px;
+        background: radial-gradient(
+            circle at top center,
+            rgba(105, 167, 255, 0.25) 0%,
+            rgba(105, 167, 255, 0.15) 25%,
+            rgba(105, 167, 255, 0.10) 45%,
+            rgba(105, 167, 255, 0.05) 65%,
+            transparent 85%
+        );
+        filter: blur(85px);
+        z-index: -2;                // más atrás que hero-bg
+        pointer-events: none;
+    }
+
+    /* --- Glow original del Hero, esto NO se toca --- */
+    .hero-bg {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+            circle at top center,
+            rgba(105, 167, 255, 0.25) 0%,
+            rgba(105, 167, 255, 0.15) 20%,
+            rgba(105, 167, 255, 0.07) 35%,
+            rgba(105, 167, 255, 0.03) 50%,
+            transparent 70%
+        );
+        filter: blur(50px);
+        z-index: -1;
+    }
+
+    .hero-content {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .title {
+        font-size: 3.2rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+
+        .highlight {
+            color: var(--primary);
+            text-shadow: 0 0 12px rgba(105,167,255,0.4);
+            animation: glow 3s infinite ease-in-out;
+        }
+    }
+
+    @keyframes glow {
+        0% { text-shadow: 0 0 12px rgba(105,167,255,0.4); }
+        50% { text-shadow: 0 0 24px rgba(105,167,255,0.7); }
+        100% { text-shadow: 0 0 12px rgba(105,167,255,0.4); }
+    }
+
+    .typing {
+        font-size: 1.8rem;
+        height: 40px;
+        margin-bottom: 25px;
+        color: var(--primary);
+        opacity: 0.9;
+        font-weight: 500;
+        display: inline-block;
+
+        .cursor {
+            display: inline-block;
+            margin-left: 4px;
+            opacity: 1;
+            animation: blink 0.8s infinite;
+        }
+
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    }
+
+    .subtitle {
+        font-size: 1.2rem;
+        color: var(--text-soft);
+        margin-bottom: 40px;
+    }
+
+    .hero-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 28px;
+    
+        font-size: 1.05rem;
+        border-radius: var(--radius);
+        cursor: pointer;
+        transition: 0.25s ease;
+    
+        background: transparent;
+        border: 2px solid var(--primary);
+        color: var(--primary);
+        font-weight: 500;
+    
+        box-shadow: 0 0 6px rgba(105,167,255,0.4);
+        
+        svg {
+            stroke: var(--primary);
+            opacity: 0.9;
+            transition: 0.25s ease;
+        }
+    
+        &:hover {
+            background: rgba(105,167,255,0.08); /* leve iluminación */
+            box-shadow: 0 0 18px rgba(105,167,255,0.8);
+            transform: translateY(-3px);
+            color: white;
+        }
+    
+        &:hover svg {
+            stroke: white;
+            filter: drop-shadow(0 0 6px rgba(105,167,255,1));
+            transform: translateY(1px);
+        }
+    }
+    
+
+    .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeIn 0.8s ease forwards;
+    }
+
+    @keyframes fadeIn {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    
+    .profile-pic {
+        align-items: center;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        object-fit: cover;
+    
+        border: 3px solid rgba(105,167,255,0.7);
+        box-shadow: 0 0 25px rgba(105,167,255,0.45);
+    
+        margin-bottom: 25px;
+    
+        animation: fadePic 0.9s ease forwards;
+        opacity: 0;
+    }
+    
+    @keyframes fadePic {
+        from { opacity: 0; transform: translateY(-10px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+    
+}
+
+
+.technologies {
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    .divisor {
+        margin-bottom: 45px;
+        max-width: 1000px;
+    }
+}
+
+.section-title {
+    margin-top: 150px;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-align: center;
+    text-shadow: 0 0 10px rgba(105, 167, 255, 0.5);
+}
+
+
+
+
+/* ---- GRUPOS DE TECNOLOGÍAS ---- */
+
+.tech-group {
+    margin-top: 80px;
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.tech-group-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+    color: var(--primary);
+    text-shadow: 0 0 10px rgba(105, 167, 255, 0.5);
+    
+}
+
+
+/* ---- GRID PRINCIPAL ---- */
+
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 25px;
+}
+
+
+/* ---- TARJETAS INDIVIDUALES ---- */
+
+.tech-card {
+    background: #0d0d0d;
+    border-radius: 14px;
+    padding: 32px 14px;
+    text-align: center;
+    transition: 0.25s ease;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+
+    /* Soft 3D */
+    box-shadow:
+        inset 0 3px 6px rgba(255, 255, 255, 0.02),
+        0 8px 18px rgba(0, 0, 0, 0.4);
+
+    cursor: default;
+
+    &:hover {
+        transform: translateY(-6px);
+        border-color: rgba(105, 167, 255, 0.35);
+        box-shadow:
+            inset 0 3px 6px rgba(255, 255, 255, 0.04),
+            0 12px 32px rgba(105, 167, 255, 0.18);
+    }
+}
+
+/* ---- ICONOS ---- */
+
+.tech-icon {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    margin-bottom: 10px;
+
+    transition: 0.25s ease;
+
+    .tech-card:hover & {
+        filter: drop-shadow(0 0 6px rgba(105, 167, 255, 0.6));
+    }
+}
+
+/* ---- NOMBRE DE LA TECNOLOGÍA ---- */
+
+.tech-card span {
+    display: block;
+    margin-top: 4px;
+    font-size: 0.95rem;
+    color: var(--text-soft);
+    transition: 0.25s ease;
+
+    .tech-card:hover & {
+        color: var(--primary);
+        text-shadow: 0 0 8px rgba(105, 167, 255, 0.5);
+    }
+}
+
+/* ---- RESPONSIVE TUNING ---- */
+
+@media (max-width: 600px) {
+    .tech-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+
+    .tech-card {
+        padding: 18px 8px;
+    }
+
+    .tech-icon {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+
+
+/* ============================================
+   PROJECTS SECTION
+============================================ */
+
+
+.projects {
+    padding: 80px 20px;
+    text-align: center;
+
+    .section-title {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+        text-shadow: 0 0 10px rgba(105,167,255,0.5);
+    }
+
+    .divisor {
+        margin-bottom: 45px;
+        max-width: 1000px;
+    }
+}
+
+/* Wrapper */
+.projects-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+
+/* ============================================
+   SWIPER CONTAINER (CARD CARROUSEL)
+============================================ */
+
+.mySwiper {
+    width: 100%;
+    height: 580px;            // <--- EN VEZ DE auto
+    max-height: 580px;
+    max-width: 95vw;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 70px;
+
+    box-shadow: 0 0 25px rgba(105,167,255,0.18);
+
+    min-height: 580px;   // <---- SUBÍ ESTO
+                         // antes estaba en 450px
+}
+
+
+/* Swiper slide */
+swiper-slide {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    background: transparent !important;
+    width: 100%;
+    height: 100%;
+}
+
+swiper-container::part(button-prev),
+swiper-container::part(button-next) {
+    color: var(--primary);
+    transition: 0.25s ease;
+    filter: drop-shadow(0 0 8px rgba(105,167,255,0.5));
+}
+
+swiper-container::part(button-prev):hover,
+swiper-container::part(button-next):hover {
+    transform: scale(1.35);
+    filter: drop-shadow(0 0 14px rgba(105,167,255,0.9));
+}
+
+swiper-container::part(button-prev):active,
+swiper-container::part(button-next):active {
+    transform: scale(1.5);
+}
+
+
+/* PAGINATION (bolitas) */
+.swiper-pagination-bullet {
+    background: var(--primary) !important;
+    opacity: 0.4;
+}
+
+.swiper-pagination-bullet-active {
+    opacity: 1;
+    box-shadow: 0 0 10px rgba(105,167,255,0.8);
+}
+
+
+/* ============================================
+   PROJECT CARD (dentro de la slide)
+============================================ */
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background: rgba(10,10,10,0.7);
+    padding: 50px 35px;
+    text-align: center;
+    border-radius: 20px;
+    box-sizing: border-box;
+
+    border: 1px solid rgba(105,167,255,0.2);
+    backdrop-filter: blur(12px);
+
+    box-shadow:
+        inset 0 0 40px rgba(105,167,255,0.05),
+        0 0 35px rgba(105,167,255,0.22);
+
+    transition: 0.25s ease;
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow:
+            0 0 35px rgba(105,167,255,0.32),
+            inset 0 2px 6px rgba(255,255,255,0.06);
+    }
+}
+
+
+/* ICONO PRINCIPAL */
+.project-icon {
+    width: 240px;
+    height: 240px;
+    object-fit: contain;
+    margin-bottom: 10px;
+    animation: float 4s ease-in-out infinite;
+    filter: drop-shadow(0 0 12px rgba(105,167,255,0.5));
+    .project-icon {
+    position: relative;
+}
+
+.project-icon::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle,
+        rgba(105,167,255,0.35) 0%,
+        transparent 70%
+    );
+    filter: blur(25px);
+    z-index: -1;
+}
+
+}
+
+@keyframes float {
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(-6px); }
+    100% { transform: translateY(0); }
+}
+/* TITULO */
+.project-card h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: var(--primary);
+    text-shadow: 0 0 10px rgba(105,167,255,0.5);
+}
+
+
+/* DESCRIPCION */
+.project-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;   // centra verticalmente
+    padding: 60px 35px;
+}
+
+
+
+/* ICONOS DE TECNOLOGIAS */
+.tech-icons {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+
+    img {
+        width: 50px;
+        height: 50px;
+        object-fit: contain;
+        opacity: 0.85;
+        transition: 0.2s ease;
+        filter: drop-shadow(0 0 6px rgba(105,167,255,0.3));
+
+        &:hover {
+            opacity: 1;
+            transform: translateY(-3px);
+            filter: drop-shadow(0 0 10px rgba(105,167,255,0.8));
+        }
+    }
+}
+
+
+.project-btn {
+    margin: 5px;
+    padding: 10px 22px;
+    border-radius: 10px;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    text-decoration: none;
+    transition: 0.25s ease;
+
+    &:hover {
+        background: var(--primary);
+        color: #fff;
+        box-shadow: 0 0 14px rgba(105,167,255,0.7);
+    }
+}
+
+
+.slide-image {
+    width: 100%;
+    height: 100%;
+    min-height: 380px;       
+    object-fit: cover;       
+    object-position: top;   
+}
+
+.project-info {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    p {
+        color: #b6b6b6;
+    }
+
+    
+}
+
+.project-description {
+    h3 {
+        font-size: 1.7rem;
+        margin-bottom: 30px;
+        color: var(--primary);
+        text-shadow: 0 0 12px rgba(105,167,255,0.6);
+    }
+    
+    p {
+        color: #b6b6b6;
+        font-size: 1.45rem;
+        line-height: 1.55;
+        max-width: 820px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 18px;
+    }
+
+}
+
+
+@media (max-width: 768px) {
+
+    .mySwiper {
+        min-height: 520px;
+    }
+
+    .slide-image {
+        height: 520px; 
+        object-fit: cover;
+        object-position: left center;
+
+    }
+
+    .project-card {
+        padding: 40px 20px;
+    }
+    
+}
+
+.contact-cta {
+    margin-top: 40px;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.contact-btn {
+    padding: 12px 28px;
+    border-radius: 12px;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    text-decoration: none;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+
+    background: rgba(10,10,10,0.7);
+    backdrop-filter: blur(15px);
+
+    box-shadow: 
+        0 0 12px rgba(105,167,255,0.4),
+        inset 0 0 25px rgba(105,167,255,0.08);
+
+    transition: 0.25s ease;
+
+    &:hover {
+        background: var(--primary);
+        color: #fff;
+        box-shadow: 
+            0 0 20px rgba(105,167,255,0.85),
+            0 0 50px rgba(105,167,255,0.45);
+        transform: translateY(-3px);
+    }
+}

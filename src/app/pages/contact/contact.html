@@ -1,0 +1,40 @@
+<section class="contact">
+
+    <h2 class="section-title">Contactame</h2>
+    <hr class="divisor">
+
+    <form (ngSubmit)="sendForm()" #form="ngForm" class="contact-form">
+
+        <input 
+            type="text" 
+            placeholder="Tu nombre" 
+            name="name"
+            [(ngModel)]="formData.name"
+            required
+        >
+    
+        <input 
+            type="email" 
+            placeholder="Tu email"
+            name="email"
+            [(ngModel)]="formData.email"
+            required
+        >
+    
+        <textarea
+            placeholder="Tu mensaje"
+            name="message"
+            [(ngModel)]="formData.message"
+            required
+        ></textarea>
+    
+        <button type="submit" class="contact-btn" [disabled]="sending">
+            {{ sending ? 'Enviando...' : 'Enviar Mensaje' }}
+        </button>
+    
+        <p class="ok" *ngIf="successMessage">{{ successMessage }}</p>
+        <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+    
+    </form>
+
+</section>

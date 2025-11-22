@@ -1,0 +1,19 @@
+.footer {
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 40px;
+
+    background: rgba(255, 255, 255, 0.05);   // leve transparencia
+    backdrop-filter: blur(6px);              // efecto vidrio
+    -webkit-backdrop-filter: blur(6px);
+
+    border-top: 1px solid rgba(255, 255, 255, 0.1);  // línea sutil
+
+    p {
+        font-size: 0.95rem;
+        color: rgba(255, 255, 255, 0.75);
+        letter-spacing: 0.5px;
+        margin: 0;
+    }
+}

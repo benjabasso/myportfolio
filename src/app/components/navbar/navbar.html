@@ -1,0 +1,34 @@
+<nav class="navbar">
+    <a routerLink="/" routerLinkActive="active" ><div class="logo"><img src="assets/others/logo.png" alt="Logo"></div></a>
+
+    <ul class="links">
+        <li>
+            <a routerLink="/"
+            routerLinkActive="active" 
+            [routerLinkActiveOptions]="{ exact: true }" 
+            class="nav-item">
+
+                <svg class="nav-icon" viewBox="0 0 24 24">
+                <path d="M3 12l9-9 9 9"/>
+                <path d="M6 10v10h12V10"/>
+                </svg>
+                Inicio
+
+            </a>
+        </li>
+
+        <li>
+            <a routerLink="/contact"  
+            routerLinkActive="active" 
+            class="nav-item">
+
+                <svg class="nav-icon" viewBox="0 0 24 24">
+                <path d="M4 4h16v12H4z"/>
+                <path d="M4 4l8 6 8-6"/>
+                </svg>
+                Contactame
+                
+            </a>
+        </li>
+    </ul>
+</nav>
