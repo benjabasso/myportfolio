@@ -14,7 +14,6 @@
 
   box-shadow: 0 0 22px rgba(105, 167, 255, 0.06);
 
-  /* Animación sutil al cargar */
   animation: fadeDown 0.7s ease forwards;
   opacity: 0;
 
@@ -28,7 +27,7 @@
     align-items: center;
 
     img {
-      width: 70px;       // ajusta tamaño del logo
+      width: 70px;
       height: 70px;
       object-fit: contain;
       filter: drop-shadow(0 0 6px rgba(105,167,255,0.45));
@@ -71,7 +70,6 @@
         transition: 0.25s ease;
       }
     
-      /* Línea inferior (apagada por defecto) */
       &::after {
         content: '';
         position: absolute;
@@ -85,7 +83,6 @@
         border-radius: 2px;
       }
     
-      /* --- HOVER --- */
       &:hover {
         color: var(--primary);
         text-shadow: 0 0 7px rgba(105, 167, 255, 0.8);
@@ -101,7 +98,6 @@
         }
       }
     
-      /* --- ACTIVE (Página actual) --- */
       &.active {
         color: var(--primary);
         text-shadow: 0 0 10px rgba(105, 167, 255, 0.8);

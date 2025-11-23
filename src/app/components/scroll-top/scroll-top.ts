@@ -13,7 +13,7 @@ export class ScrollTopComponent implements OnInit {
   show = false;
 
   ngOnInit() {
-    if (typeof window !== 'undefined') {  // evita errores de SSR
+    if (typeof window !== 'undefined') {
       window.addEventListener('scroll', () => {
         this.show = window.scrollY > 300;
       });

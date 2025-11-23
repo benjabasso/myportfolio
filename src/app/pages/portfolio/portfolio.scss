@@ -3,13 +3,13 @@
     padding: 180px 20px 160px;
     min-height: 60vh;
     text-align: center;
-    overflow: visible; // 🔥 IMPORTANTE para que el glow suba a la navbar
+    overflow: visible;
 
-    /* --- GLOW SUPERIOR QUE SE MEZCLA CON LA NAVBAR --- */
+    
     &::before {
         content: "";
         position: absolute;
-        top: -180px;                // 🔥 sube el glow por detrás de la navbar
+        top: -180px;
         left: 50%;
         transform: translateX(-50%);
         width: 100%;
@@ -23,11 +23,10 @@
             transparent 85%
         );
         filter: blur(85px);
-        z-index: -2;                // más atrás que hero-bg
+        z-index: -2;
         pointer-events: none;
     }
 
-    /* --- Glow original del Hero, esto NO se toca --- */
     .hero-bg {
         position: absolute;
         inset: 0;
@@ -171,6 +170,7 @@
     
 }
 
+/*--------TECNOLOGÍAS---------*/
 
 .technologies {
     padding: 80px 20px;
@@ -192,11 +192,6 @@
     text-shadow: 0 0 10px rgba(105, 167, 255, 0.5);
 }
 
-
-
-
-/* ---- GRUPOS DE TECNOLOGÍAS ---- */
-
 .tech-group {
     margin-top: 80px;
     margin-bottom: 60px;
@@ -212,17 +207,11 @@
     
 }
 
-
-/* ---- GRID PRINCIPAL ---- */
-
 .tech-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 25px;
 }
-
-
-/* ---- TARJETAS INDIVIDUALES ---- */
 
 .tech-card {
     background: #0d0d0d;
@@ -232,7 +221,7 @@
     transition: 0.25s ease;
     border: 1px solid rgba(255, 255, 255, 0.04);
 
-    /* Soft 3D */
+    
     box-shadow:
         inset 0 3px 6px rgba(255, 255, 255, 0.02),
         0 8px 18px rgba(0, 0, 0, 0.4);
@@ -248,8 +237,6 @@
     }
 }
 
-/* ---- ICONOS ---- */
-
 .tech-icon {
     width: 48px;
     height: 48px;
@@ -263,8 +250,6 @@
     }
 }
 
-/* ---- NOMBRE DE LA TECNOLOGÍA ---- */
-
 .tech-card span {
     display: block;
     margin-top: 4px;
@@ -277,8 +262,6 @@
         text-shadow: 0 0 8px rgba(105, 167, 255, 0.5);
     }
 }
-
-/* ---- RESPONSIVE TUNING ---- */
 
 @media (max-width: 600px) {
     .tech-grid {
@@ -296,11 +279,7 @@
 }
 
 
-
-/* ============================================
-   PROJECTS SECTION
-============================================ */
-
+/*--------PROYECTOS---------*/
 
 .projects {
     padding: 80px 20px;
@@ -319,7 +298,6 @@
     }
 }
 
-/* Wrapper */
 .projects-wrapper {
     display: flex;
     flex-direction: column;
@@ -327,28 +305,18 @@
     width: 100%;
 }
 
-
-/* ============================================
-   SWIPER CONTAINER (CARD CARROUSEL)
-============================================ */
-
 .mySwiper {
     width: 100%;
-    height: 580px;            // <--- EN VEZ DE auto
+    height: 580px;
     max-height: 580px;
     max-width: 95vw;
     border-radius: 20px;
     overflow: hidden;
     margin-bottom: 70px;
-
     box-shadow: 0 0 25px rgba(105,167,255,0.18);
-
-    min-height: 580px;   // <---- SUBÍ ESTO
-                         // antes estaba en 450px
+    min-height: 580px;
 }
 
-
-/* Swiper slide */
 swiper-slide {
     display: flex !important;
     justify-content: center;
@@ -376,8 +344,6 @@ swiper-container::part(button-next):active {
     transform: scale(1.5);
 }
 
-
-/* PAGINATION (bolitas) */
 .swiper-pagination-bullet {
     background: var(--primary) !important;
     opacity: 0.4;
@@ -387,11 +353,6 @@ swiper-container::part(button-next):active {
     opacity: 1;
     box-shadow: 0 0 10px rgba(105,167,255,0.8);
 }
-
-
-/* ============================================
-   PROJECT CARD (dentro de la slide)
-============================================ */
 
 .project-card {
     display: flex;
@@ -422,8 +383,6 @@ swiper-container::part(button-next):active {
     }
 }
 
-
-/* ICONO PRINCIPAL */
 .project-icon {
     width: 240px;
     height: 240px;
@@ -454,7 +413,7 @@ swiper-container::part(button-next):active {
     50%  { transform: translateY(-6px); }
     100% { transform: translateY(0); }
 }
-/* TITULO */
+
 .project-card h3 {
     font-size: 1.4rem;
     font-weight: 600;
@@ -463,19 +422,14 @@ swiper-container::part(button-next):active {
     text-shadow: 0 0 10px rgba(105,167,255,0.5);
 }
 
-
-/* DESCRIPCION */
 .project-card {
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;   // centra verticalmente
+    justify-content: center;
     padding: 60px 35px;
 }
 
-
-
-/* ICONOS DE TECNOLOGIAS */
 .tech-icons {
     display: flex;
     justify-content: center;
@@ -498,7 +452,6 @@ swiper-container::part(button-next):active {
         }
     }
 }
-
 
 .project-btn {
     margin: 5px;
@@ -523,8 +476,6 @@ swiper-container::part(button-next):active {
     object-position: center;
     display: block;
 }
-
-
 
 .project-info {
     width: 100%;
@@ -561,7 +512,6 @@ swiper-container::part(button-next):active {
 
 }
 
-
 @media (max-width: 768px) {
 
     .mySwiper {
@@ -583,6 +533,26 @@ swiper-container::part(button-next):active {
     }
     
 }
+
+@media (max-width: 600px) {
+    .project-description {
+        padding: 10px;
+    }
+    .project-description h3 {
+        font-size: 1.3rem;
+        margin-bottom: 20px;
+    }
+
+    .project-description p {
+        font-size: 0.95rem;    // antes 1.45rem
+        line-height: 1.45;
+        padding: 0 10px;
+        text-align: center;      // opcional, queda más legible en mobile
+    }
+}
+
+
+/*--------CONTACTO---------*/
 
 .contact-cta {
     margin-top: 40px;
@@ -618,23 +588,3 @@ swiper-container::part(button-next):active {
     }
 }
 
-/* ===========================
-   RESPONSIVE PROJECT DESCRIPTION
-=========================== */
-
-@media (max-width: 600px) {
-    .project-description {
-        padding: 10px;
-    }
-    .project-description h3 {
-        font-size: 1.3rem;
-        margin-bottom: 20px;
-    }
-
-    .project-description p {
-        font-size: 0.95rem;    // antes 1.45rem
-        line-height: 1.45;
-        padding: 0 10px;
-        text-align: center;      // opcional, queda más legible en mobile
-    }
-}

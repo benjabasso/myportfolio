@@ -14,7 +14,7 @@ register();
   imports: [CommonModule],
   templateUrl: './portfolio.html',
   styleUrl: './portfolio.scss',
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],   // <-- AGREGADO
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 
 export class Portfolio {
@@ -44,10 +44,6 @@ export class Portfolio {
     section?.scrollIntoView({ behavior: 'smooth' });
   }
 
-
-
-
-  // === TYPING ANIMATION ===
   typingInterval: any;
   deleteInterval: any;
 
